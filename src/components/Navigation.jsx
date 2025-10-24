@@ -30,7 +30,7 @@ export default function Navigation() {
   const closeMobileMenu = () => setIsMenuOpen(false);
 
   return (
-    <header className="bg-white border-b border-gray-200 px-4 lg:px-16">
+    <header className="bg-white border-b border-gray-200 px-4 lg:px-16 sticky top-0 z-20 w-full">
       <div>
         <div className="flex items-center justify-between  h-16">
           {/* Logo */}

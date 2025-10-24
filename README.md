@@ -1,12 +1,45 @@
-# React + Vite
+# 🛍️ Mebius — MERN Stack Clothing Store
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Mebius is a **full-stack e-commerce web application** built using the **MERN (MongoDB, Express.js, React, Node.js)** stack.  
+It provides a smooth online shopping experience with product browsing, filtering, authentication, cart, and checkout features using **Stripe** for secure payments.
 
-Currently, two official plugins are available:
+---
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## 🚀 Features
 
-## Expanding the ESLint configuration
+### 🖥️ Frontend
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+- Built with **React + Vite** for fast performance
+- **Tailwind CSS** and **shadcn/ui** for a modern, responsive UI
+- **Redux Toolkit** for state management
+- **React Hook Form** for form handling and validation
+- Dynamic product display with categories and colors
+- Search and sort by:
+  - Price: Low → High / High → Low
+  - Color
+- Cart and checkout pages
+- Product detail view
+
+### ⚙️ Backend
+
+- **Node.js** and **Express.js** REST API
+- **MongoDB** with **Mongoose** for database management
+- **Clerk Authentication** for user login/signup
+- **Stripe** integrated (test mode) for secure payments
+- **Postman** used for API testing
+- Layered architecture with `api`, `application`, `domain`, and `infrastructure` folders
+
+---
+
+## 🧩 Tech Stack
+
+**Frontend:**  
+`React` · `Vite` · `Tailwind CSS` · `shadcn/ui` · `Redux Toolkit` · `React Hook Form`
+
+**Backend:**  
+`Node.js` · `Express.js` · `MongoDB` · `Mongoose` · `Clerk` · `Stripe`
+
+**Tools & Others:**  
+`Postman` · `Git` · `VS Code`
+
+---
