@@ -74,13 +74,39 @@ export const Api = createApi({
             },
         }),
 
-        // --- Add this inside your endpoints ---
         getAllColors: build.query({
             query: () => `/colors`, // backend route that returns all colors
         }),
 
         getProductById: build.query({
             query: (id) => `/products/${id}`,
+        }),
+
+        getCart: build.query({
+            query: () => `/cart`
+        }),
+
+        addToCart: build.mutation({
+            query: (productId) => ({
+                url: `/cart/add`,
+                method: "POST",
+                body: { productId },
+            }),
+        }),
+
+        updateCartQuantity: build.mutation({
+            query: ({ productId, quantity }) => ({
+                url: `/cart/quantity`,
+                method: "PUT",
+                body: { productId, quantity },
+            })
+        }),
+        removeCartItem: build.mutation({
+            query: (productId) => ({
+                url: `/cart/remove`,
+                method: "DELETE",
+                body: { productId },
+            }),
         }),
 
 
@@ -103,4 +129,8 @@ export const {
     useGetShopProductsQuery,
     useGetAllColorsQuery,
     useGetProductByIdQuery,
+    useGetCartQuery,
+    useAddToCartMutation,
+    useUpdateCartQuantityMutation,
+    useRemoveCartItemMutation,
 } = Api;

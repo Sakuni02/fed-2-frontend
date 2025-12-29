@@ -2,9 +2,9 @@ import { useParams } from "react-router";
 import { useGetProductByIdQuery } from "@/lib/api";
 import { Button } from "@/components/ui/button";
 import { useDispatch } from "react-redux";
-import { addToCart } from "@/lib/features/cartSlice";
+import { addItemToDB } from "@/lib/features/cartSlice";
 import { Card, CardContent } from "@/components/ui/card";
-import { RefreshCw, Shield, Star, Truck } from "lucide-react";
+import { Plus, RefreshCw, Shield, Star, Truck } from "lucide-react";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import SimpleProductCard from "@/components/SimpleProductCard";
 
@@ -101,7 +101,10 @@ function ProductPage() {
           <div className="mb-6">
             <h3 className="font-semibold mb-3">Color</h3>
             <div className="flex gap-3">
-              <button className="bg-amber-400 w-12 h-12 rounded-full border-2 transition-smooth hover-scale" />
+              <div
+                className="w-8 h-8 rounded-full border-white"
+                style={{ backgroundColor: product.colorId?.hex }}
+              />
             </div>
           </div>
 
@@ -125,17 +128,9 @@ function ProductPage() {
             <Button
               className="flex-1 rounded-full"
               size="lg"
-              onClick={() =>
-                dispatch(
-                  addToCart({
-                    _id: props.product._id,
-                    name: props.product.name,
-                    price: props.product.price,
-                    image: props.product.image,
-                  })
-                )
-              }
+              onClick={() => dispatch(addItemToDB(product._id))}
             >
+              <Plus className="h-5 w-5 text-white" />
               Add to Cart
             </Button>
             <Button className="flex-1 rounded-full" size="lg" variant="outline">

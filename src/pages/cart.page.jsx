@@ -6,26 +6,14 @@ import { Card } from "@/components/ui/card";
 
 function CartPage() {
   const cart = useSelector((state) => state.cart.cartItems);
-  console.log(cart);
+  const subtotal = cart.reduce(
+    (acc, item) => acc + item.product.price * item.quantity,
+    0
+  );
 
   return (
     <main className="lg:px-16 min-h-screen py-8 px-5">
       <h2 className="text-4xl font-bold">Shopping Cart</h2>
-      {/* <div className="mt-4 grid grid-cols-2 w-1/2 gap-x-4">
-        {cart.map((item, index) => (
-          <CartItem key={index} item={item} />
-        ))}
-      </div>
-
-      <div className="mt-4">
-        {cart.length > 0 ? (
-          <Button asChild>
-            <Link to="/shop/checkout">Proceed to Checkout</Link>
-          </Button>
-        ) : (
-          <p>No items in cart</p>
-        )}
-      </div> */}
 
       <div className="grid lg:grid-cols-3 sm:grid-cols-1 gap-8 justify-center">
         <div className="col-span-2">
@@ -49,17 +37,17 @@ function CartPage() {
 
             <div className="flex justify-between">
               <p>Subtotal</p>
-              <p>$139.97</p>
+              <span>$ {subtotal.toLocaleString()}</span>
             </div>
 
             <div className="flex justify-between">
               <p>Shipping</p>
-              <p>$10.00</p>
+              <p>FREE</p>
             </div>
 
             <div className="flex justify-between border-t">
               <p className="text-xl font-bold mt-3">Total</p>
-              <p className="text-xl font-bold mt-3">$149.97</p>
+              <span>$ {subtotal.toLocaleString()}</span>
             </div>
 
             {cart.length > 0 ? (

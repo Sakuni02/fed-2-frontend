@@ -1,6 +1,6 @@
-# 🛍️ Mebius — MERN Stack Clothing Store
+# 🛍️ Thread — MERN Stack Clothing Store
 
-Mebius is a **full-stack e-commerce web application** built using the **MERN (MongoDB, Express.js, React, Node.js)** stack.  
+Thread is a **full-stack e-commerce web application** built using the **MERN (MongoDB, Express.js, React, Node.js)** stack.  
 It provides a smooth online shopping experience with product browsing, filtering, authentication, cart, and checkout features using **Stripe** for secure payments.
 
 ---

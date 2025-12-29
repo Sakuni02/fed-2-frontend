@@ -10,14 +10,17 @@ import {
 } from "@/components/ui/select";
 
 import { Link } from "react-router";
-import { ShoppingBag, SlidersHorizontal } from "lucide-react";
+import { Plus, ShoppingBag, SlidersHorizontal } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { useDispatch } from "react-redux";
+import { addItemToDB } from "@/lib/features/cartSlice";
 
 function ShopPage() {
   const { category } = useParams();
   // Local state for filters
   const [selectedColor, setSelectedColor] = useState("");
   const [sortOption, setSortOption] = useState("");
+  const dispatch = useDispatch();
 
   const { data, isLoading, error } = useGetShopProductsQuery({
     categorySlug: category,
@@ -119,21 +122,16 @@ function ShopPage() {
                 </div>
 
                 <div className="flex items-center justify-between w-full">
-                  {/* <Button
-                    variant="ghost"
-                    size="icon"
-                    className="hidden md:flex"
-                  >
-                    <ShoppingBag />
-                  </Button> */}
-
                   <p>${product.price}</p>
                   <Button
-                    size="lg"
-                    variant="accent"
-                    className={"bg-black/80  hover:cursor-pointer"}
+                    size="icon"
+                    className="rounded-full bg-gray-900/90 hover:bg-[#41e0e0] transition-colors shadow-md"
+                    onClick={(e) => {
+                      e.preventDefault();
+                      dispatch(addItemToDB(product._id));
+                    }}
                   >
-                    <ShoppingBag className="text-white" />
+                    <Plus className="h-5 w-5 text-white" />
                   </Button>
                 </div>
               </div>
