@@ -1,4 +1,4 @@
-import { useParams } from "react-router";
+import { useNavigate, useParams } from "react-router";
 import { useGetProductByIdQuery, useGetShopProductsQuery } from "@/lib/api";
 import { Button } from "@/components/ui/button";
 import { useDispatch } from "react-redux";
@@ -8,8 +8,12 @@ import { Plus, RefreshCw, Shield, Star, Truck } from "lucide-react";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { useState } from "react";
 import SimpleProductCard from "@/components/SimpleProductCard";
+import { useAuth } from "@clerk/clerk-react";
 
 function ProductPage() {
+  const { isSignedIn } = useAuth();
+  const navigate = useNavigate();
+
   const { productId } = useParams();
   const {
     data: product,
@@ -142,7 +146,13 @@ function ProductPage() {
             <Button
               className="flex-1 rounded-full"
               size="lg"
-              onClick={() => dispatch(addItemToDB(product._id))}
+              onClick={() => {
+                if (!isSignedIn) {
+                  navigate("/sign-in");
+                  return;
+                }
+                dispatch(addItemToDB(product._id));
+              }}
             >
               <Plus className="h-5 w-5 text-white" />
               Add to Cart
