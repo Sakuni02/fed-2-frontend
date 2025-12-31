@@ -28,7 +28,7 @@ const createProductFormSchema = z.object({
   categoryId: z.string().min(1),
   name: z.string().min(1),
   description: z.string().min(1),
-  image: z.string().min(1),
+  images: z.array(z.string().min(1)),
   stock: z.number(),
   price: z.number().nonnegative(),
 });
@@ -44,7 +44,7 @@ function CreateProductForm({ categories }) {
     try {
       console.log(values);
 
-      // await createProduct(values).unwrap();
+      await createProduct(values).unwrap();
     } catch (error) {
       console.log(error);
     }
@@ -108,10 +108,10 @@ function CreateProductForm({ categories }) {
         />
         <FormField
           control={form.control}
-          name="image"
+          name="images"
           render={({ field }) => (
             <FormItem>
-              <FormLabel>Image</FormLabel>
+              <FormLabel>Images</FormLabel>
               <FormControl>
                 <ImageInput onChange={field.onChange} value={field.value} />
               </FormControl>

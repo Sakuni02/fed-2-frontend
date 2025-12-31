@@ -108,6 +108,9 @@ export default function Navigation() {
               {isMenuOpen ? <X size={20} /> : <Menu size={20} />}
             </button>
           </div>
+          {/* <Link to="/admin/products/create">
+            <h2 className="text-black">Admin Panel</h2>
+          </Link> */}
         </div>
       </div>
 

@@ -112,7 +112,7 @@ function ShopPage() {
               className="border p-4 rounded"
             >
               <img
-                src={product.image}
+                src={product.images[0]}
                 alt={product.name}
                 className="w-full h-48 object-cover"
               />

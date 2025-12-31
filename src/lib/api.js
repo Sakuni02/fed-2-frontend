@@ -60,6 +60,7 @@ export const Api = createApi({
                 const sort = args?.sort;
                 const page = args?.page || 1;
                 const limit = args?.limit || 24;
+                const exclude = args?.exclude;
 
                 let url = "/products/shop";
                 if (categorySlug) url += `/${categorySlug}`;
@@ -67,6 +68,7 @@ export const Api = createApi({
                 const params = new URLSearchParams();
                 if (color) params.append("color", color);
                 if (sort) params.append("sort", sort);
+                if (exclude) params.append("exclude", exclude);
                 params.append("page", page.toString());
                 params.append("limit", limit.toString());
 

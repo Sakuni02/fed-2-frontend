@@ -13,7 +13,7 @@ function CartItem({ item }) {
         {/* Product Image */}
         <div className="w-20 h-20 rounded-xl overflow-hidden shrink-0 bg-muted">
           <img
-            src={item.product.image || "/placeholder.svg"}
+            src={item.product.images[0] || "/placeholder.svg"}
             alt={item.product.name}
             className="w-full h-full object-cover"
           />
